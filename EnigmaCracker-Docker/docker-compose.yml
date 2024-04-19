@@ -1,8 +1,10 @@
-version: '3.8'
+version: '3.4'
+
 services:
-  enigmacracker:
-    build: .
-    environment:
-      - ETHERSCAN_API_KEY=73I43MQF8F7A9HZT8U5ACT4MWZ8QRX83XC
-    volumes:
-      - ./data:/usr/src/app/data
+  enigmacrackerdocker:
+    image: enigmacrackerdocker
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8000:8000
