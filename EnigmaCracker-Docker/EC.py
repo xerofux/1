@@ -22,9 +22,13 @@ WALLETS_FILE_NAME = "wallets_with_balance.txt"
 # Get the absolute path of the directory where the script is located
 directory = os.path.dirname(os.path.abspath(__file__))
 # Initialize directory paths
-log_file_path = os.path.join(directory, LOG_FILE_NAME)
+log_file_path = os.path.join(directory, "data", LOG_FILE_NAME)
 env_file_path = os.path.join(directory, ENV_FILE_NAME)
-wallets_file_path = os.path.join(directory, WALLETS_FILE_NAME)
+wallets_file_path = os.path.join(directory, "data", WALLETS_FILE_NAME)
+
+# Check if data folder exist else create 
+if not os.path.exists(os.path.join(directory, "data")):
+    os.makedirs(os.path.join(directory, "data"))
 
 # Configure logging
 logging.basicConfig(
